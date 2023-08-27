@@ -1,0 +1,16 @@
+{
+  "name": "crosshash",
+  "version": "0.1.0",
+  "description": "Stable JSON serialization and hashing for Python and JavaScript.",
+  "homepage": "https://github.com/httpie/crosshash",
+  "license": "MIT",
+  "main": "crosshash.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "json-stable-stringify": "^1.0.2",
+    "md5.js": "^1.3.5"
+  }
+}

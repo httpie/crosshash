@@ -1,0 +1,13 @@
+name: test
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v1
+      - run: make install
+      - run: make test

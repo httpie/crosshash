@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "crosshash"
+version = "0.1.0"
+authors = ["Jakub Roztocil <jakub@httpie.io>"]
+description = "Stable JSON serialization and hashing for Python and JavaScript."
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/httpie/crosshash"
+repository = "https://github.com/httpie/crosshash"
+packages = [{include = "crosshash.py"}]
+include = ["LICENSE", "README.md"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+twine = "^4.0.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
