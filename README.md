@@ -4,7 +4,6 @@
 [![PyPi](https://badge.fury.io/py/crosshash.svg)](https://pypi.python.org/pypi/crosshash)
 [![NPM](https://badge.fury.io/js/crosshash.svg)](https://www.npmjs.com/package/crosshash)
 
-https://badge.fury.io/js/crosshash.svg
 Stable, cross-platform JSON serialization and hashing for Python and JavaScript.
 
 ## Motivation
