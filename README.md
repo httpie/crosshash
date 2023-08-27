@@ -42,6 +42,17 @@ The following features are implemented in both Python and JavaScript and the out
 - Hash the resulting string with MD5
 
 
+### CLI
+
+Both Python and JavaScript implementations come with a CLI that can be used to generate stable JSON and hashes.
+
+```bash
+JSON=''{"B":2,"C":[1,2,3],"A":1}''
+[ $(crosshash-js --hash "$JSON") == $(crosshash-py --hash "$JSON") ] && echo 'It’s a match!'
+[ $(crosshash-js --json "$JSON") == $(crosshash-py --json "$JSON") ] && echo 'It’s a match!'
+```
+
+
 ## Usage
 
 ### Python
@@ -68,12 +79,12 @@ crosshash({'A': MAX_SAFE_INTEGER + 1})
 You can invoke `crosshash.py` directly or use `python -m crosshash`. The package also installs an executable called `crosshash-py`.
 
 ```bash
-$ python3 -m crosshash --json '{"B": 2, "C": [1, 2, 3], "A": 1}'
+$ crosshash-py --json '{"B": 2, "C": [1, 2, 3], "A": 1}'
 {"A":1,"B":2,"C":[1,2,3]}
 ```
 
 ```bash
-$ python3 -m crosshash --hash '{"B": 2, "C": [1, 2, 3], "A": 1}'
+$ crosshash-py --hash '{"B": 2, "C": [1, 2, 3], "A": 1}'
 12982c60a9a8829ea4eeb2e1e7e1e04e
 ```
 
@@ -104,12 +115,12 @@ crosshash({A: Number.MAX_SAFE_INTEGER + 1})
 You can invoke `crosshash.js` directly or using `npx`. The package also installs an executable called `crosshash-js`.
 
 ```bash
-$ npx crosshash --json '{"B": 2, "C": [1, 2, 3], "A": 1}'
+$ crosshash-js --json '{"B": 2, "C": [1, 2, 3], "A": 1}'
 {"A":1,"B":2,"C":[1,2,3]}
 ```
 
 ```bash
-$ npx crosshash --hash '{"B": 2, "C": [1, 2, 3], "A": 1}'
+$ crosshash-js --hash '{"B": 2, "C": [1, 2, 3], "A": 1}'
 12982c60a9a8829ea4eeb2e1e7e1e04e
 ```
 
