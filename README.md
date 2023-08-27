@@ -93,9 +93,9 @@ $ crosshash-py --hash '{"B": 2, "C": [1, 2, 3], "A": 1}'
 
 ### JavaScript
 
-Browsers and Node.js are supported.
-
 #### API
+
+The library runs in the browser and Node.js and comes with [TypeScript definitions](./crosshash.d.ts).
 
 ```javascript
 const {crossjson, crosshash, CrossHashError} = require('crosshash')
