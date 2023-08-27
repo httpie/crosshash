@@ -117,7 +117,7 @@ You can invoke `crosshash.js` directly. The package also installs two identical 
 
 ## Test suite
 
-To ensure consistency, the [test suite](./tests) invokes the Python and JavaScript implementations of `crossjson()` and `crosshash()` on the same data and compares the results.
+To ensure consistency, the [test suite](./tests) invokes the Python and JavaScript implementations of `crossjson()` and `crosshash()` on the [same data](./tests/cases.py) and compares the results.
 
 
 
