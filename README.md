@@ -31,13 +31,13 @@ npm install crosshash
 
 The following features are implemented in both Python and JavaScript and the output is guaranteed to be the same:
 
-### `crossjson(obj) -> str`
+### `crossjson(obj) → str`
 
 - Sort keys alphabetically
 - Ensure no unsafe numbers are present 
 - Serialize using the same format as `JSON.stringify()` (lowest common denominator)
 
-### `crosshash(obj) -> str`
+### `crosshash(obj) → str`
 
 - Serialize the object with `crossjson()`
 - Hash the resulting string with MD5
