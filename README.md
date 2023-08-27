@@ -47,7 +47,7 @@ The following features are implemented in both Python and JavaScript and the out
 Both Python and JavaScript implementations come with a CLI that can be used to generate stable JSON and hashes.
 
 ```bash
-JSON=''{"B":2,"C":[1,2,3],"A":1}''
+JSON='{"B":2,"C":[1,2,3],"A":1}'
 [ $(crosshash-js --hash "$JSON") == $(crosshash-py --hash "$JSON") ] && echo 'It’s a match!'
 [ $(crosshash-js --json "$JSON") == $(crosshash-py --json "$JSON") ] && echo 'It’s a match!'
 ```
