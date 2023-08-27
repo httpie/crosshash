@@ -1,8 +1,6 @@
 # `crosshash`
 
 [![Build status](https://github.com/httpie/crosshash/workflows/test/badge.svg)](https://github.com/httpie/crosshash/actions)
-[![PyPi](https://badge.fury.io/py/crosshash.svg)](https://pypi.python.org/pypi/crosshash)
-[![NPM](https://badge.fury.io/js/crosshash.svg)](https://www.npmjs.com/package/crosshash)
 
 Stable, cross-platform JSON serialization and hashing for Python and JavaScript.
 
@@ -14,7 +12,7 @@ To make it possible to compare and hash JSON objects in a stable way across plat
 
 ### Python
 
-https://pypi.org/project/crosshash
+[![PyPi](https://badge.fury.io/py/crosshash.svg)](https://pypi.python.org/pypi/crosshash)
 
 ```bash
 pip install crosshash
@@ -22,7 +20,7 @@ pip install crosshash
 
 ### JavaScript
 
-https://www.npmjs.com/package/crosshash
+[![NPM](https://badge.fury.io/js/crosshash.svg)](https://www.npmjs.com/package/crosshash)
 
 ```bash
 npm install crosshash
