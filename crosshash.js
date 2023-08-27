@@ -15,7 +15,6 @@ class CrossHashError extends Error {
 const crosshash = (obj) => {
     return md5(crossjson(obj))
 }
-
 const crossjson = (obj) => {
     return stringify(obj, {replacer: replacer})
 }
@@ -46,24 +45,19 @@ const main = () => {
     Usage:
         node crosshash.js --json '{"foo": "bar"}'
         node crosshash.js --hash '{"foo": "bar"}'
-    `;
-
-    const args = process.argv.slice(2); // remove the first two arguments (node and script name)
-
+    `
+    const args = process.argv.slice(2)
     if (args.length !== 2 || !['--json', '--hash'].includes(args[0])) {
-        console.log(usage);
-        process.exit(1);
+        console.log(usage)
+        process.exit(1)
     }
-
-    const action = args[0];
-    const inputJson = JSON.parse(args[1]);
+    const action = args[0]
+    const inputJson = JSON.parse(args[1])
     const operation = {
         '--json': crossjson,
         '--hash': crosshash
-    }[action];
-
-    const output = operation(inputJson);
-    return output;
+    }[action]
+    return operation(inputJson)
 }
 
 if (typeof require !== 'undefined' && typeof module !== 'undefined' && require.main === module) {
