@@ -26,11 +26,14 @@ GENERATORS = (
 
 # Manual test cases that should be cross-hashable
 CASES_OK: list[JSON] = [
+    -1.1,
+    -1,
+    -1.0,
+    -1.1,
     0,
     0.1,
     1,
     1.0,
-    1.1,
     '',
     '\0',
     'AAA',
@@ -55,7 +58,9 @@ CASES_OK: list[JSON] = [
 # Manual test cases that shouldn’t be cross-hashable due to unsafe numbers
 CASES_UNSAFE_NUMBERS: list[JSON] = [
     {'unsafe_int': MAX_SAFE_INTEGER + 1},
+    {'unsafe_int_neg': -(MAX_SAFE_INTEGER + 1)},
     {'unsafe_float': MAX_SAFE_INTEGER + 1.1},
+    {'unsafe_float_neg': -(MAX_SAFE_INTEGER + 1.1)},
 ]
 
 
