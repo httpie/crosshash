@@ -1,12 +1,16 @@
 {
   "name": "crosshash",
-  "version": "0.1.0",
-  "description": "Stable JSON serialization and hashing for Python and JavaScript.",
+  "version": "0.2.0",
+  "description": "Stable, cross-platform JSON serialization and hashing for Python and JavaScript.",
   "homepage": "https://github.com/httpie/crosshash",
   "license": "MIT",
   "main": "crosshash.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "files": [
+    "crosshash.js"
+  ],
+  "bin": {
+    "crosshash": "./crosshash.js",
+    "crosshash-js": "./crosshash.js"
   },
   "author": "",
   "dependencies": {

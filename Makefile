@@ -1,11 +1,15 @@
 default: list-tasks
 
+clean:
+	rm -rf dist/ tests/.pytest_cache/ node_modules/
+	find . -name '__pycache__' -delete -print -o -name '*.pyc' -delete -print
+
 test:
 	poetry run pytest tests/tests.py
 
-
 install: install-py install-js
 
+release: release-pypi release-npm
 
 install-py:
 	poetry --version || python3 -m pip install poetry
@@ -16,16 +20,11 @@ install-py:
 install-js:
 	npm install
 
-
-clean:
-	rm -rf dist/ .pytest_cache/ node_modules/
-	find . -name '__pycache__' -delete -print -o -name '*.pyc' -delete -print
-
-release-pypi: clean
+release-pypi:
 	poetry build
 	poetry run twine upload --verbose --repository=crosshash dist/*
 
-release-npm: clean
+release-npm:
 	npm publish
 
 # Default task to get a list of tasks when `make' is run without args.

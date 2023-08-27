@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Stable JSON serialization and hashing for Python and JavaScript.
 
@@ -6,19 +7,26 @@ Stable JSON serialization and hashing for Python and JavaScript.
 """
 import hashlib
 import json
+from typing import TypeAlias
 
-__all__ = ['crossjson', 'crosshash', 'CrossHashError', 'MAX_SAFE_INTEGER']
+
+__all__ = ('crossjson', 'crosshash', 'CrossHashError', 'MAX_SAFE_INTEGER', 'JSON', 'ERROR_UNSAFE_NUMBER')
 
 # <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER>
 MAX_SAFE_INTEGER = 9007199254740991  # 2**53 - 1
+
+# For tests
 ERROR_UNSAFE_NUMBER = 'ERROR_UNSAFE_NUMBER'
+
+# <https://github.com/python/typing/issues/182#issuecomment-1320974824>
+JSON: TypeAlias = dict[str, 'JSON'] | list['JSON'] | str | int | float | bool | None
 
 
 class CrossHashError(ValueError):
     pass
 
 
-def crossjson(obj: dict) -> str:
+def crossjson(obj: JSON) -> str:
     obj = clean(obj)
     return json.dumps(
         obj=obj,
@@ -29,15 +37,15 @@ def crossjson(obj: dict) -> str:
     )
 
 
-def crosshash(obj: dict) -> str:
-    return hash_string(crossjson(obj))
+def crosshash(obj: JSON) -> str:
+    return md5(crossjson(obj))
 
 
-def hash_string(s: str) -> str:
+def md5(s: str) -> str:
     return hashlib.md5(s.encode()).hexdigest()
 
 
-def clean(value):
+def clean(value: JSON) -> JSON:
     if isinstance(value, int):
         validate_number(value)
     elif isinstance(value, float):
@@ -76,20 +84,21 @@ def clean_float(value: float):
     return value
 
 
-if __name__ == '__main__':
+def main():
+    """
+    Usage:
+        python3 -m crosshash --json '{"foo": "bar"}'
+        python3 -m crosshash --hash '{"foo": "bar"}'
+    """
     import sys
+    if len(sys.argv) != 3 or sys.argv[1] not in ('--json', '--hash'):
+        print(__doc__)
+        sys.exit(1)
+    action, input_json = sys.argv[1:]
+    operation = {'--json': crossjson, '--hash': crosshash}[action]
+    output = operation(json.loads(input_json))
+    print(output)
 
 
-    def main(action, input_json):
-        do_hash = {'--json': False, '--hash': True}[action]
-        output = crossjson(json.loads(input_json))
-        if do_hash:
-            output = hash_string(output)
-        return output
-
-
-    try:
-        input_json = sys.argv[2]
-    except IndexError:
-        input_json = json.dumps({"a": 1.0})
-    print(main(action=sys.argv[1], input_json=input_json))
+if __name__ == '__main__':
+    main()

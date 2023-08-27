@@ -1,14 +1,18 @@
 [tool.poetry]
 name = "crosshash"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Jakub Roztocil <jakub@httpie.io>"]
-description = "Stable JSON serialization and hashing for Python and JavaScript."
+description = "Stable, cross-platform JSON serialization and hashing for Python and JavaScript."
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/httpie/crosshash"
 repository = "https://github.com/httpie/crosshash"
 packages = [{include = "crosshash.py"}]
 include = ["LICENSE", "README.md"]
+
+[tool.poetry.scripts]
+crosshash = 'crosshash:main'
+crosshash-py = 'crosshash:main'
 
 [tool.poetry.dependencies]
 python = "^3.11"
