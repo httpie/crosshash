@@ -66,7 +66,7 @@ crosshash({'A': MAX_SAFE_INTEGER + 1})
 
 #### CLI
 
-You can invoke `crosshash.py` directly or use `python -m crosshash`. The package also installs two identical scripts `crosshash` and `crosshash-py` (the latter is useful when you want to ensure you’re invoking the Python implementation).
+You can invoke `crosshash.py` directly or use `python -m crosshash`. The package also installs two identical scripts `crosshash` and `crosshash.py` (the latter is useful when you want to ensure you’re invoking the Python implementation).
 
 ```bash
 python3 -m crosshash --json '{"B": 2, "C": [1, 2, 3], "A": 1}'
@@ -102,7 +102,7 @@ crosshash({A: Number.MAX_SAFE_INTEGER + 1})
 
 #### CLI
 
-You can invoke `crosshash.js` directly. The package also installs two identical scripts `crosshash` and `crosshash-js` (the latter is useful when you want to ensure you’re invoking the JavaScript implementation).
+You can invoke `crosshash.js` directly. The package also installs two identical scripts `crosshash` and `crosshash.js` (the latter is useful when you want to ensure you’re invoking the JavaScript implementation).
 
 ```bash
 ./crosshash.js --json '{"B": 2, "C": [1, 2, 3], "A": 1}'

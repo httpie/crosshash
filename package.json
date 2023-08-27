@@ -10,7 +10,7 @@
   ],
   "bin": {
     "crosshash": "./crosshash.js",
-    "crosshash-js": "./crosshash.js"
+    "crosshash.js": "./crosshash.js"
   },
   "author": "",
   "dependencies": {

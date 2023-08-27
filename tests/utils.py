@@ -8,13 +8,13 @@ from pprint import pprint
 from crosshash import JSON
 
 
-ROOT = Path(__file__).parent.parent
+ROOT = Path(__file__).parent.parent.absolute()
 
 
-IMPLEMENTATIONS = {
-    'Python': ('python3', ROOT / 'crosshash.py'),
-    'JavaScript': ('node', ROOT / 'crosshash.js'),
-}
+IMPLEMENTATIONS: list[Path] = [
+    ROOT / 'crosshash.py',
+    ROOT / 'crosshash.js',
+]
 
 
 def assert_all_equal(data: JSON, output_format: str):
@@ -25,32 +25,32 @@ def assert_all_equal(data: JSON, output_format: str):
 
     """
     outputs = {
-        name: get_output(data=shuffle_keys(data), cmd=cmd, output_format=output_format)
-        for name, cmd in IMPLEMENTATIONS.items()
+        exe: get_output(data=shuffle_keys(data), exe=exe, output_format=output_format)
+        for exe in IMPLEMENTATIONS
     }
     if len(set(outputs.values())) > 1:
-        for name_a, name_b in combinations(IMPLEMENTATIONS.keys(), 2):
-            output_a, output_b = outputs[name_a], outputs[name_b]
-            print(name_a)
+        for exe_a, exe_b in combinations(IMPLEMENTATIONS, 2):
+            output_a, output_b = outputs[exe_a], outputs[exe_b]
+            print(exe_a.name)
             pprint(output_a)
-            print(name_b)
+            print(exe_b.name)
             pprint(output_b)
             assert output_a == output_b
 
 
 def assert_all_fail(data: JSON, output_format: str, error_message: str):
-    for name, cmd in IMPLEMENTATIONS.items():
+    for exe in IMPLEMENTATIONS:
         print()
-        print(name)
-        output = get_output(data=data, cmd=cmd, output_format=output_format, expect_success=False)
+        print(exe.name)
+        output = get_output(data=data, exe=exe, output_format=output_format, expect_success=False)
         print(output)
         assert error_message in output
         print()
 
 
-def get_output(data: JSON, cmd: tuple, output_format: str, expect_success=True):
+def get_output(*, exe: Path, output_format: str, data: JSON, expect_success=True):
     input_json = json.dumps(data)
-    cmd = [*cmd, output_format, input_json]
+    cmd = [str(exe), output_format, input_json]
     process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     output, _ = process.communicate()
     output = output.decode().strip()

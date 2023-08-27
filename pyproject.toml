@@ -12,7 +12,7 @@ include = ["LICENSE", "README.md"]
 
 [tool.poetry.scripts]
 crosshash = 'crosshash:main'
-crosshash-py = 'crosshash:main'
+crosshash.py = 'crosshash:main'
 
 [tool.poetry.dependencies]
 python = "^3.11"
