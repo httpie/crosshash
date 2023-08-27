@@ -65,15 +65,15 @@ crosshash({'A': MAX_SAFE_INTEGER + 1})
 
 #### CLI
 
-You can invoke `crosshash.py` directly or use `python -m crosshash`. The package also installs an executable `crosshash-py`.
+You can invoke `crosshash.py` directly or use `python -m crosshash`. The package also installs an executable called `crosshash-py`.
 
 ```bash
-python3 -m crosshash --json '{"B": 2, "C": [1, 2, 3], "A": 1}'
+$ python3 -m crosshash --json '{"B": 2, "C": [1, 2, 3], "A": 1}'
 {"A":1,"B":2,"C":[1,2,3]}
 ```
 
 ```bash
-python3 -m crosshash --hash '{"B": 2, "C": [1, 2, 3], "A": 1}'
+$ python3 -m crosshash --hash '{"B": 2, "C": [1, 2, 3], "A": 1}'
 12982c60a9a8829ea4eeb2e1e7e1e04e
 ```
 
@@ -101,23 +101,21 @@ crosshash({A: Number.MAX_SAFE_INTEGER + 1})
 
 #### CLI
 
-You can invoke `crosshash.js` directly. The package also installs an executable `crosshash-js`.
+You can invoke `crosshash.js` directly or using `npx`. The package also installs an executable called `crosshash-js`.
 
 ```bash
-./crosshash.js --json '{"B": 2, "C": [1, 2, 3], "A": 1}'
+$ npx crosshash --json '{"B": 2, "C": [1, 2, 3], "A": 1}'
 {"A":1,"B":2,"C":[1,2,3]}
 ```
 
 ```bash
-./crosshash.js --hash '{"B": 2, "C": [1, 2, 3], "A": 1}'
+$ npx crosshash --hash '{"B": 2, "C": [1, 2, 3], "A": 1}'
 12982c60a9a8829ea4eeb2e1e7e1e04e
 ```
-
 
 ## Test suite
 
 To ensure consistency, the [test suite](./tests) invokes the Python and JavaScript implementations of `crossjson()` and `crosshash()` on the [same data](./tests/cases.py) and compares the results.
-
 
 
 ## Development
