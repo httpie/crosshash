@@ -9,7 +9,7 @@ test:
 
 install: install-py install-js
 
-release: release-pypi release-npm
+release: release-py release-js
 
 install-py:
 	poetry --version || python3 -m pip install poetry
@@ -20,11 +20,11 @@ install-py:
 install-js:
 	npm install
 
-release-pypi:
+release-py:
 	poetry build
 	poetry run twine upload --verbose --repository=crosshash dist/*
 
-release-npm:
+release-js:
 	npm publish
 
 # Default task to get a list of tasks when `make' is run without args.

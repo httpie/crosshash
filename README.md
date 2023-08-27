@@ -1,7 +1,10 @@
 # `crosshash`
 
 [![Build status](https://github.com/httpie/crosshash/workflows/test/badge.svg)](https://github.com/httpie/crosshash/actions)
+[![PyPi](https://badge.fury.io/py/crosshash.svg)](https://pypi.python.org/pypi/crosshash)
+[![NPM](https://badge.fury.io/js/crosshash.svg)](https://www.npmjs.com/package/crosshash)
 
+https://badge.fury.io/js/crosshash.svg
 Stable, cross-platform JSON serialization and hashing for Python and JavaScript.
 
 ## Motivation
@@ -9,7 +12,6 @@ Stable, cross-platform JSON serialization and hashing for Python and JavaScript.
 To make it possible to compare and hash JSON objects in a stable way across platforms.
 
 ## Installation
-
 
 ### Python
 
@@ -66,7 +68,7 @@ crosshash({'A': MAX_SAFE_INTEGER + 1})
 
 #### CLI
 
-You can invoke `crosshash.py` directly or use `python -m crosshash`. The package also installs two identical scripts `crosshash` and `crosshash.py` (the latter is useful when you want to ensure you’re invoking the Python implementation).
+You can invoke `crosshash.py` directly or use `python -m crosshash`. The package also installs an executable `crosshash-py`.
 
 ```bash
 python3 -m crosshash --json '{"B": 2, "C": [1, 2, 3], "A": 1}'
@@ -102,7 +104,7 @@ crosshash({A: Number.MAX_SAFE_INTEGER + 1})
 
 #### CLI
 
-You can invoke `crosshash.js` directly. The package also installs two identical scripts `crosshash` and `crosshash.js` (the latter is useful when you want to ensure you’re invoking the JavaScript implementation).
+You can invoke `crosshash.js` directly. The package also installs an executable `crosshash-js`.
 
 ```bash
 ./crosshash.js --json '{"B": 2, "C": [1, 2, 3], "A": 1}'
@@ -122,6 +124,8 @@ To ensure consistency, the [test suite](./tests) invokes the Python and JavaScri
 
 
 ## Development
+
+It should be fairly straightforward to add support for other languages.
 
 ```bash
 git clone git@github.com:httpie/crosshash.git

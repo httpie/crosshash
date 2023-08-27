@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
 """
-Stable JSON serialization and hashing for Python and JavaScript.
+`crosshash` — stable JSON serialization and hashing for Python and JavaScript
 
 <https://github.com/httpie/crosshash>
+
+
+CLI usage:
+    python3 -m crosshash --json '{"foo": "bar"}'
+    python3 -m crosshash --hash '{"foo": "bar"}'
 
 """
 import hashlib
 import json
+from textwrap import dedent
 from typing import TypeAlias
 
 
@@ -85,11 +91,6 @@ def clean_float(value: float):
 
 
 def main():
-    """
-    Usage:
-        python3 -m crosshash --json '{"foo": "bar"}'
-        python3 -m crosshash --hash '{"foo": "bar"}'
-    """
     import sys
     if len(sys.argv) != 3 or sys.argv[1] not in ('--json', '--hash'):
         print(__doc__)

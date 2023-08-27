@@ -42,6 +42,10 @@ const isSafeNumber = (value) => {
 
 const main = () => {
     const usage = `
+    crosshash — stable JSON serialization and hashing for Python and JavaScript
+
+    https://github.com/httpie/crosshash
+    
     Usage:
         node crosshash.js --json '{"foo": "bar"}'
         node crosshash.js --hash '{"foo": "bar"}'
