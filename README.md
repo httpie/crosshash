@@ -100,7 +100,7 @@ The library runs in the browser and Node.js and comes with [TypeScript definitio
 ```javascript
 const {crossjson, crosshash, CrossHashError} = require('crosshash')
 
-const obj = {'B': 2, 'C': [1, 2, 3], 'A': 1}
+const obj = {B: 2, C: [1, 2, 3], A: 1}
 
 // Generate stable JSON:
 assert(crossjson(obj) === '{"A":1,"B":2,"C":[1,2,3]}')
