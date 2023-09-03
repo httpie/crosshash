@@ -126,6 +126,14 @@ $ crosshash-js --hash '{"B": 2, "C": [1, 2, 3], "A": 1}'
 12982c60a9a8829ea4eeb2e1e7e1e04e
 ```
 
+## Stability
+
+The Python/JavaScript libraries with matching versions are guaranteed to produce the same output. 
+
+The format is unlikely to change but i’s not guaranteed to be stable across versions. Therefore, it’s not recommended to cache the output. This may change as the library matures to v1.0.
+
+
+
 ## Test suite
 
 To ensure consistency, the [test suite](./tests) invokes the Python and JavaScript implementations of `crossjson()` and `crosshash()` on the [same data](./tests/cases.py) and compares the results.
