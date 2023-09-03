@@ -128,9 +128,7 @@ $ crosshash-js --hash '{"B": 2, "C": [1, 2, 3], "A": 1}'
 
 ## Stability
 
-The Python/JavaScript libraries with matching versions are guaranteed to produce the same output. 
-
-The format is unlikely to change but i’s not guaranteed to be stable across versions. Therefore, it’s not recommended to cache the output. This may change as the library matures to v1.0.
+The Python/JavaScript libraries with matching versions are guaranteed to produce the same output. The format is unlikely to change but it’s not guaranteed to be stable across different versions. Therefore, it’s not recommended to cache the output. This may change as the library matures to v1.0.
 
 
 
