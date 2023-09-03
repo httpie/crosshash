@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "crosshash"
-version = "0.3.3"
+version = "0.3.4"
 authors = ["Jakub Roztocil <jakub@httpie.io>"]
 description = "Stable, cross-platform JSON serialization and hashing for Python and JavaScript."
 license = "MIT"

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-
-const MD5 = require('md5.js')
+const MD5 = require('crypto-js/md5');
 const stringify = require('json-stable-stringify')
 
 const ERROR_UNSAFE_NUMBER = 'ERROR_UNSAFE_NUMBER'
@@ -20,7 +19,7 @@ const crossjson = (obj) => {
 }
 
 const md5 = (string) => {
-    return new MD5().update(string).digest('hex')
+    return MD5(string).toString()
 }
 
 const replacer = (key, value) => {

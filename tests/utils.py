@@ -61,14 +61,7 @@ def assert_all_equal(data: JSON, output_format: str):
     outputs = {
         imp: imp.get_output(data=shuffle_keys(data), output_format=output_format) for imp in IMPLEMENTATIONS
     }
-    if len(set(outputs.values())) > 1:
-        for exe_a, exe_b in combinations(IMPLEMENTATIONS, 2):
-            output_a, output_b = outputs[exe_a], outputs[exe_b]
-            print(exe_a.name)
-            pprint(output_a)
-            print(exe_b.name)
-            pprint(output_b)
-            assert output_a == output_b
+    assert len(set(outputs.values())) == 1, outputs
 
 
 def assert_all_fail(data: JSON, output_format: str, error_message: str):
