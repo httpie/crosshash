@@ -13,7 +13,6 @@ release: release-py release-js
 
 install-py:
 	poetry --version || python3 -m pip install poetry
-	poetry env use python3.11
 	poetry install
 
 install-js:
